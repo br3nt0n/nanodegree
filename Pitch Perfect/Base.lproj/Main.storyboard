@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -63,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="1117" y="372"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Sounds View Controller-->
         <scene sceneID="ovf-NZ-UQc">
             <objects>
-                <viewController id="rJA-Vt-Chu" sceneMemberID="viewController">
+                <viewController id="rJA-Vt-Chu" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kmu-Ts-bNf"/>
                         <viewControllerLayoutGuide type="bottom" id="ky9-0D-dU2"/>
@@ -75,70 +73,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JKe-Qp-0d0">
-                                <rect key="frame" x="20" y="70" width="560" height="530"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cFl-QV-TYZ">
+                                <rect key="frame" x="20" y="84" width="560" height="400"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cFl-QV-TYZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="480"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Jl2-SF-ERp">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="400"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Jl2-SF-ERp">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="480"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXK-wC-HKW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="100"/>
-                                                        <state key="normal" image="slow"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcb-UE-GVS">
-                                                        <rect key="frame" x="0.0" y="200" width="280" height="100"/>
-                                                        <state key="normal" image="chipmunk"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxE-DR-WRc">
-                                                        <rect key="frame" x="0.0" y="400" width="280" height="80"/>
-                                                        <state key="normal" image="reverb"/>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Dvy-Ja-6Yq">
-                                                <rect key="frame" x="280" y="0.0" width="280" height="480"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzs-3r-dex">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="160"/>
-                                                        <state key="normal" image="fast"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VA-Xy-ToY">
-                                                        <rect key="frame" x="0.0" y="160" width="280" height="160"/>
-                                                        <state key="normal" image="darthvader"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxV-k4-MgW">
-                                                        <rect key="frame" x="0.0" y="320" width="280" height="160"/>
-                                                        <state key="normal" image="echo"/>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXK-wC-HKW">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="100"/>
+                                                <state key="normal" image="slow"/>
+                                                <connections>
+                                                    <action selector="playSlowSound" destination="rJA-Vt-Chu" eventType="touchUpInside" id="cdy-Ai-zKq"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcb-UE-GVS">
+                                                <rect key="frame" x="0.0" y="160" width="280" height="100"/>
+                                                <state key="normal" image="chipmunk"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxE-DR-WRc">
+                                                <rect key="frame" x="0.0" y="320" width="280" height="80"/>
+                                                <state key="normal" image="reverb"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4d-4G-y8r">
-                                        <rect key="frame" x="0.0" y="480" width="560" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="2Fi-Hf-8eg"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Dvy-Ja-6Yq">
+                                        <rect key="frame" x="280" y="0.0" width="280" height="400"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzs-3r-dex">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="100"/>
+                                                <state key="normal" image="fast"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VA-Xy-ToY">
+                                                <rect key="frame" x="0.0" y="160" width="280" height="100"/>
+                                                <state key="normal" image="darthvader"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxV-k4-MgW">
+                                                <rect key="frame" x="0.0" y="320" width="280" height="80"/>
+                                                <state key="normal" image="echo"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4d-4G-y8r">
+                                <rect key="frame" x="20" y="530" width="560" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2Fi-Hf-8eg"/>
+                                </constraints>
+                                <state key="normal" image="stop"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JKe-Qp-0d0" firstAttribute="top" secondItem="aXT-kK-HQO" secondAttribute="firstBaseline" id="Ado-ad-be7"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="JKe-Qp-0d0" secondAttribute="bottom" id="Epw-gn-Bud"/>
-                            <constraint firstItem="JKe-Qp-0d0" firstAttribute="leading" secondItem="aXT-kK-HQO" secondAttribute="leadingMargin" id="Zhw-MS-yH2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JKe-Qp-0d0" secondAttribute="trailing" id="ymK-ah-w9X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cFl-QV-TYZ" secondAttribute="trailing" id="0hA-ga-o7F"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="h4d-4G-y8r" secondAttribute="leading" id="Jlg-L4-P1L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h4d-4G-y8r" secondAttribute="trailing" id="M9h-S5-QMy"/>
+                            <constraint firstItem="cFl-QV-TYZ" firstAttribute="leading" secondItem="aXT-kK-HQO" secondAttribute="leadingMargin" id="Wxq-3O-NnK"/>
+                            <constraint firstItem="cFl-QV-TYZ" firstAttribute="top" secondItem="kmu-Ts-bNf" secondAttribute="bottom" constant="20" id="bvt-u8-oBZ"/>
+                            <constraint firstItem="ky9-0D-dU2" firstAttribute="top" secondItem="h4d-4G-y8r" secondAttribute="bottom" constant="20" id="kbg-GO-xGG"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Ado-ad-be7"/>
-                            </mask>
-                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpT-Jp-qTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,7 +160,7 @@
     <resources>
         <image name="chipmunk" width="100" height="100"/>
         <image name="darthvader" width="100" height="100"/>
-        <image name="echo" width="160" height="160"/>
+        <image name="echo" width="80" height="80"/>
         <image name="fast" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="reverb" width="80" height="80"/>
